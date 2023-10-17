@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<head>
+  <title>
+    Calculator App
+  </title>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+
+          <td colspan="3" style="background-color: white; color: black;">
+            <input id="result" readonly style="width: 100%; text-decoration: none;" />
+          </td>
+          <td style="background-color: green; text-align: center;" onclick="clearDisplay()">AC</td>
+        </tr>
+        <tr>
+          <td class="Number" onclick="appendToDisplay('9')">9</td>
+          <td class="Number" onclick="appendToDisplay('8')">8</td>
+          <td class="Number" onclick="appendToDisplay('7')">7</td>
+          <td class="Grey" onclick="appendToDisplay('+')">+</td>
+        </tr>
+        <tr>
+          <td class="Number" onclick="appendToDisplay('4')">4</td>
+          <td class="Number" onclick="appendToDisplay('5')">5</td>
+          <td class="Number" onclick="appendToDisplay('6')">6</td>
+          <td class="Grey" onclick="appendToDisplay('-')">-</td>
+        </tr>
+        <tr>
+          <td class="Number" onclick="appendToDisplay('1')">1</td>
+          <td class="Number" onclick="appendToDisplay('2')">2</td>
+          <td class="Number" onclick="appendToDisplay('3')">3</td>
+          <td class="Grey" onclick="appendToDisplay('/')">/</td>
+        </tr>
+        <tr>
+          <td class="Number" onclick="appendToDisplay('.')">.</td>
+          <td class="Number" onclick="appendToDisplay('0')">0</td>
+          <td class="Number" onclick="calculateResult()">=</td>
+          <td class="Grey" onclick="appendToDisplay('*')">*</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <script>
+    function appendToDisplay(value) {
+      if (document.getElementById('result').value == 'Error') {
+        document.getElementById('result').value = '';
+      }
+      document.getElementById('result').value += value;
+      console.log(value, "val")
+    }
+
+    function clearDisplay() {
+      document.getElementById('result').value = '';
+    }
+
+    function calculateResult() {
+      const displayValue = document.getElementById('result').value;
+      try {
+        document.getElementById('result').value = eval(displayValue);
+      } catch (error) {
+        document.getElementById('result').value = 'Error';
+      }
+    }
+  </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container{
+   margin-top: 10%;
+}
+
+.Number{
+    background-color: black; 
+    color: white; 
+    text-align: center;
+}
+
+.Grey{
+    background-color: grey; 
+    color: white; 
+    text-align: center;
+}
+
+.table td, .table th {
+    padding: 0.1rem !important;
+    vertical-align: top;
+    border-top: 0px solid #dee2e6 !important;
+}
